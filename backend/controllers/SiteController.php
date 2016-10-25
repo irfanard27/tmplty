@@ -63,6 +63,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionLog()
+    {
+        return $this->render('login');
+    }
+
     /**
      * Login action.
      *
@@ -70,6 +75,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = "main-login";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
