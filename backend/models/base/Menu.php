@@ -37,7 +37,7 @@ abstract class Menu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['menu', 'icon', 'parent', 'module', 'controller'], 'required'],
+            [['menu', 'icon', 'controller'], 'required'],
             [['menu', 'icon', 'parent', 'module', 'controller'], 'string', 'max' => 100]
         ];
     }
@@ -58,6 +58,9 @@ abstract class Menu extends \yii\db\ActiveRecord
     }
 
 
+    public function getMenu(){
+        return $this->hasMany(Menu::className(), ['id' => 'id']);
+    }
 
 
 }

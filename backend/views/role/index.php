@@ -7,10 +7,10 @@ use yii\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var app\models\MenuSearch $searchModel
+ * @var app\models\RoleSearch $searchModel
  */
 
-$this->title = 'Menus';
+$this->title = 'Roles';
 $this->params['breadcrumbs'][] = $this->title;
 
 if (isset($actionColumnTemplates)) {
@@ -23,7 +23,7 @@ if (isset($actionColumnTemplates)) {
 }
 
 ?>
-<div class="giiant-crud menu-index">
+<div class="giiant-crud role-index">
 
     <?php //             echo $this->render('_search', ['model' =>$searchModel]);
     ?>
@@ -63,11 +63,11 @@ if (isset($actionColumnTemplates)) {
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Data <?= Yii::t('app', 'Menus') ?></h3>
+        <h3 class="box-title">Data <?= Yii::t('app', 'Roles') ?></h3>
     </div>
 
     <div class="box-body">
-        <div class="table-responsive">
+        <div class="table-responsive ">
             <?= GridView::widget([
                 'layout' => '{summary}{pager}{items}{pager}',
                 'dataProvider' => $dataProvider,
@@ -91,12 +91,14 @@ if (isset($actionColumnTemplates)) {
                         },
                         'contentOptions' => ['nowrap' => 'nowrap']
                     ],
-                    'menu',
-                    'icon',
-                    'parent',
-                    'module',
-                    'controller',
-
+                    'role',
+                    [
+                        'label'=>'Setting Role',
+                        'format'=>'raw',
+                        'value'=>function($role){
+                            return Html::a("<i class='fa fa-gear'></i> Setting",['setting?id='.$role->id],["class"=>'btn btn-warning']);
+                        }
+                    ],
                 ],
             ]); ?>
         </div>

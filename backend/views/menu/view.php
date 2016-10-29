@@ -8,9 +8,9 @@ use yii\widgets\Pjax;
 use dmstr\bootstrap\Tabs;
 
 /**
-* @var yii\web\View $this
-* @var app\models\Menu $model
-*/
+ * @var yii\web\View $this
+ * @var app\models\Menu $model
+ */
 $copyParams = $model->attributes;
 
 $this->title = Yii::t('app', 'Menu');
@@ -33,22 +33,23 @@ $this->params['breadcrumbs'][] = 'View';
         <!-- menu buttons -->
         <div class='pull-left'>
             <?= Html::a(
-            '<span class="fa fa-pencil"></span> ' . 'Edit',
-            [ 'update', 'id' => $model->id],
-            ['class' => 'btn btn-info']) ?>
+                '<span class="fa fa-pencil"></span> ' . 'Edit',
+                ['update', 'id' => $model->id],
+                ['class' => 'btn btn-info']) ?>
 
             <?= Html::a(
-            '<span class="fa fa-plus"></span> ' . 'New',
-            ['create'],
-            ['class' => 'btn btn-success']) ?>
+                '<span class="fa fa-plus"></span> ' . 'New',
+                ['create'],
+                ['class' => 'btn btn-success']) ?>
         </div>
 
         <div class="pull-right">
             <?= Html::a('<span class="fa fa-list"></span> '
-            . 'Full list', ['index'], ['class'=>'btn btn-default']) ?>
+                . 'Full list', ['index'], ['class' => 'btn btn-default']) ?>
         </div>
 
-    </div><br  clear="all">
+    </div>
+    <br clear="all">
 
     <div class="box box-primary">
         <div class="box-header with-border">
@@ -58,44 +59,51 @@ $this->params['breadcrumbs'][] = 'View';
         <div class="box-body">
             <?php $this->beginBlock('app\models\Menu'); ?>
 
-            
+
             <?= DetailView::widget([
-            'model' => $model,
-            'attributes' => [
+                'model' => $model,
+                'attributes' => [
                     'id',
-        'menu',
-        'icon',
-        'parent',
-        'module',
-        'controller',
-            ],
+                    'menu',
+                    [
+                        'label'=>'Icon',
+                        'format'=>'raw',
+                        'value'=>"<i class='".$model->icon."'</i>"." (".$model->icon.')'
+                    ],
+                    [
+                        'label'=>'Parent Menu',
+                        'value'=>\app\models\Menu::findOne($model->parent)->menu,
+                    ],
+                    'module',
+                    'controller',
+                ],
             ]); ?>
 
-            
+
             <hr/>
 
             <?= Html::a('<span class="fa fa-trash"></span> ' . 'Delete', ['delete', 'id' => $model->id],
-            [
-            'class' => 'btn btn-danger',
-            'data-confirm' => '' . 'Are you sure to delete this item?' . '',
-            'data-method' => 'post',
-            ]); ?>
+                [
+                    'class' => 'btn btn-danger',
+                    'data-confirm' => '' . 'Are you sure to delete this item?' . '',
+                    'data-method' => 'post',
+                ]); ?>
             <?php $this->endBlock(); ?>
 
 
-            
+
             <?= Tabs::widget(
-                 [
-                     'id' => 'relation-tabs',
-                     'encodeLabels' => false,
-                     'items' => [ [
-    'label'   => '<b class=""># '.$model->id.'</b>',
-    'content' => $this->blocks['app\models\Menu'],
-    'active'  => true,
-], ]
-                 ]
-    );
-    ?>        </div>
+                [
+                    'id' => 'relation-tabs',
+                    'encodeLabels' => false,
+                    'items' => [[
+                        'label' => '<b class=""># ' . $model->id . '</b>',
+                        'content' => $this->blocks['app\models\Menu'],
+                        'active' => true,
+                    ],]
+                ]
+            );
+            ?>        </div>
 
     </div>
 
