@@ -70,10 +70,7 @@ $this->params['breadcrumbs'][] = 'View';
                         'format'=>'raw',
                         'value'=>"<i class='".$model->icon."'</i>"." (".$model->icon.')'
                     ],
-                    [
-                        'label'=>'Parent Menu',
-                        'value'=>\app\models\Menu::findOne($model->parent)->menu,
-                    ],
+
                     'module',
                     'controller',
                 ],
@@ -109,3 +106,4 @@ $this->params['breadcrumbs'][] = 'View';
 
 
 </div>
+<div style="background: #f3f3f3"

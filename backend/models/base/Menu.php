@@ -37,7 +37,7 @@ abstract class Menu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['menu', 'icon', 'controller'], 'required'],
+            [['menu', 'icon'], 'required'],
             [['menu', 'icon', 'parent', 'module', 'controller'], 'string', 'max' => 100]
         ];
     }
