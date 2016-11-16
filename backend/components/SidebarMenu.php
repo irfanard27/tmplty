@@ -10,13 +10,23 @@ namespace backend\components;
 
 
 use app\models\Menu;
+use app\models\RoleMenu;
 use yii\bootstrap\Widget;
 
 class SidebarMenu extends Widget
 {
     public static function getMenu(){
         $menu = [];
-        foreach(Menu::find()->where(["parent"=>""])->all() as $menus){
+
+        $role_menu = Menu::find()
+            ->leftJoin('role_menu','menu.id = role_menu.menu')
+            ->where([
+                "menu.parent"=>"",
+                'role_menu.role'=>\Yii::$app->user->id
+            ])
+            ->all();
+
+        foreach($role_menu as $menus){
             $mnu = [
                 "label" =>$menus->menu,
                 "icon"  =>$menus->icon,
@@ -34,7 +44,15 @@ class SidebarMenu extends Widget
 
     public static function getMenuByParent($prt){
         $menu = [];
-        foreach(Menu::find()->where(['parent'=>$prt])->all() as $menus){
+        $role_menus = Menu::find()
+            ->leftJoin('role_menu','menu.id = role_menu.menu')
+            ->where([
+                "menu.parent"=>$prt,
+                'role_menu.role'=>\Yii::$app->user->id
+            ])
+            ->all();
+
+        foreach($role_menus as $menus){
             $mnu = [
                 "label" =>$menus->menu,
                 "icon"  =>$menus->icon,

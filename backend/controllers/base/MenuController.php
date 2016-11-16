@@ -6,6 +6,7 @@ namespace backend\controllers\base;
 
 use app\models\Menu;
 use app\models\MenuSearch;
+use backend\components\RoleControl;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
@@ -23,6 +24,11 @@ class MenuController extends Controller
      */
     public $enableCsrfValidation = false;
 
+    public function behaviors()
+    {
+
+        return RoleControl::getAllowedAction();
+    }
 
     /**
      * Lists all Menu models.

@@ -93,10 +93,10 @@ if (isset($actionColumnTemplates)) {
                     ],
                     'role',
                     [
-                        'label'=>'Setting Role',
-                        'format'=>'raw',
-                        'value'=>function($role){
-                            return Html::a("<i class='fa fa-gear'></i> Setting",['setting?id='.$role->id],["class"=>'btn btn-warning']);
+                        'label' => 'Setting Role',
+                        'format' => 'raw',
+                        'value' => function ($role) {
+                            return Html::a("<i class='fa fa-gear'></i> Setting", ['setting?id=' . $role->id], ["class" => 'btn btn-warning']);
                         }
                     ],
                 ],

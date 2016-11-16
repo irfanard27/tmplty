@@ -303,4 +303,24 @@ return array (
     ),
     'bootstrap' => 'schmunk42\\giiant\\Bootstrap',
   ),
+  'unclead/yii2-multiple-input' => 
+  array (
+    'name' => 'unclead/yii2-multiple-input',
+    'version' => '2.1.1.0',
+    'alias' => 
+    array (
+      '@unclead/multipleinput/examples' => $vendorDir . '/unclead/yii2-multiple-input/examples',
+      '@unclead/multipleinput' => $vendorDir . '/unclead/yii2-multiple-input/src',
+      '@unclead/multipleinput/tests' => $vendorDir . '/unclead/yii2-multiple-input/tests',
+    ),
+  ),
+  'hscstudio/yii2-mimin' => 
+  array (
+    'name' => 'hscstudio/yii2-mimin',
+    'version' => '1.1.3.0',
+    'alias' => 
+    array (
+      '@hscstudio/mimin' => $vendorDir . '/hscstudio/yii2-mimin',
+    ),
+  ),
 );

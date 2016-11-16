@@ -24,6 +24,23 @@ class PostController extends Controller
     public $enableCsrfValidation = false;
 
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index'],
+                        'roles' => ['managePost'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
+
     /**
      * Lists all Post models.
      * @return mixed
@@ -132,7 +149,6 @@ class PostController extends Controller
             return $this->redirect(['index']);
         }
     }
-
 
     /**
      * Finds the Post model based on its primary key value.

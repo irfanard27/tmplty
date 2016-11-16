@@ -4,13 +4,19 @@
 
 namespace backend\controllers\base;
 
+use app\models\Action;
+use app\models\base\RoleMenu;
 use app\models\Role;
 use app\models\RoleSearch;
+use yii\base\Component;
+use yii\db\Command;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
 use dmstr\bootstrap\Tabs;
+use backend\components\RoleControl;
 
 /**
  * RoleController implements the CRUD actions for Role model.
@@ -23,6 +29,11 @@ class RoleController extends Controller
      */
     public $enableCsrfValidation = false;
 
+    /**public function behaviors()
+    {
+
+        return RoleControl::getAllowedAction();
+    }
 
     /**
      * Lists all Role models.
@@ -137,6 +148,52 @@ class RoleController extends Controller
     public function actionSetting($id){
         $model = $this->findModel($id);
 
+        if(\Yii::$app->request->post()){
+            extract(\Yii::$app->request->post());
+            $m = @$menu;
+
+            if(!empty($m)){
+                RoleMenu::deleteAll(['role'=>\Yii::$app->user->id]);
+
+                for ($i=0;$i<sizeof($m);$i++){
+                    $men = RoleMenu::find()->where(['menu'=>$menu[$i],'role'=>\Yii::$app->user->id])->count();
+
+                    if($men==0){
+                        \Yii::$app->db->createCommand()->insert('role_menu',[
+                            'menu'=>$menu[$i],
+                            'role'=>\Yii::$app->user->id
+                        ])->execute();
+                    }
+
+                }
+            } else {
+                RoleMenu::deleteAll(['role'=>\Yii::$app->user->id]);
+            }
+
+            $act = @$_POST['action'];
+            if(!empty($act)){
+
+                Action::deleteAll(['role'=>\Yii::$app->user->id]);
+                foreach ($act as $action){
+                    $real_act = explode("/",$action);
+                    $men = Action::find()->where(['menu'=>$real_act[0],'role'=>\Yii::$app->user->id ,'action'=>$real_act[1] ])->count();
+                    if($men==0){
+
+                        \Yii::$app->db->createCommand()->insert('action',[
+                            'menu'=>$real_act[0],
+                            'role'=>\Yii::$app->user->id,
+                            'action'=>$real_act[1]
+                        ])->execute();
+                    }
+
+                }
+
+            } else {
+                Action::deleteAll(['role'=>\Yii::$app->user->id]);
+            }
+
+
+        }
         return $this->render("role_setting",[
            "model"=>$model
         ]);

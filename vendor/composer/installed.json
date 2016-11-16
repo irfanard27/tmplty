@@ -3278,5 +3278,99 @@
             "gii",
             "yii2"
         ]
+    },
+    {
+        "name": "unclead/yii2-multiple-input",
+        "version": "2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/unclead/yii2-multiple-input.git",
+            "reference": "56c937d860193e8e56d3bf0cb8010a33ae53533c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/unclead/yii2-multiple-input/zipball/56c937d860193e8e56d3bf0cb8010a33ae53533c",
+            "reference": "56c937d860193e8e56d3bf0cb8010a33ae53533c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "5.4.*"
+        },
+        "time": "2016-10-12 08:42:14",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "unclead\\multipleinput\\examples\\": "examples/",
+                "unclead\\multipleinput\\": "src/",
+                "unclead\\multipleinput\\tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Eugene Tupikov",
+                "email": "unclead.nsk@gmail.com"
+            }
+        ],
+        "description": "Widget for handle multiple inputs for an attribute of Yii2 framework model",
+        "keywords": [
+            "yii2",
+            "yii2 array input",
+            "yii2 multiple field",
+            "yii2 multiple input",
+            "yii2 tabular input"
+        ]
+    },
+    {
+        "name": "hscstudio/yii2-mimin",
+        "version": "v1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hscstudio/yii2-mimin.git",
+            "reference": "089f71c2e5bc679d3b67703eecfba53984b50e5c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hscstudio/yii2-mimin/zipball/089f71c2e5bc679d3b67703eecfba53984b50e5c",
+            "reference": "089f71c2e5bc679d3b67703eecfba53984b50e5c",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-widgets": "*",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2016-09-06 02:14:38",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "hscstudio\\mimin\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Hafid Mukhlasin",
+                "email": "hafidmukhlasin@gmail.com"
+            }
+        ],
+        "description": "Simple RBAC Manager",
+        "keywords": [
+            "extension",
+            "yii2"
+        ]
     }
 ]

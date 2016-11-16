@@ -26,11 +26,18 @@
         </form>
         <!-- /.search form -->
 
-        <?php $item = backend\components\SidebarMenu::getMenu();?>
+        <?php
+
+        use hscstudio\mimin\components\Mimin;
+        $menuItems = backend\components\SidebarMenu::getMenu();
+
+        //$menuItems = Mimin::filterMenu($menuItems);
+
+        ?>
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
-                'items' => $item,
+                'items' => $menuItems,
             ]
         ) ?>
 
