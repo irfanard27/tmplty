@@ -74,6 +74,7 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         ),
         'd' => 
         array (
+            'dvixi\\' => 6,
             'dmstr\\helpers\\' => 14,
             'dmstr\\db\\tests\\' => 15,
             'dmstr\\db\\' => 9,
@@ -255,6 +256,10 @@ class ComposerStaticInit0d1d3c13f80202964b8b82ff7f2fb863
         'hscstudio\\mimin\\' => 
         array (
             0 => __DIR__ . '/..' . '/hscstudio/yii2-mimin',
+        ),
+        'dvixi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dvixi/yii2-icon-select/src',
         ),
         'dmstr\\helpers\\' => 
         array (

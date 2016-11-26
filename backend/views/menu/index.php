@@ -94,7 +94,12 @@ if (isset($actionColumnTemplates)) {
                     'menu',
                     'icon',
                     'parent',
-                    'module',
+                    [
+                        'attribute'=>'module',
+                        'value'=>function($module){
+                            return \app\models\Module::findOne($module->module)->module;
+                        }
+                    ],
                     'controller',
 
                 ],

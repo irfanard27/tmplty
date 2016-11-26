@@ -3,3 +3,6 @@
     color: #ffffff;
     font-size: 18px;
 }
+html,body{
+    min-height: 100%;
+}

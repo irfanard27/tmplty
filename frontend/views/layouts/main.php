@@ -25,7 +25,7 @@ AppAsset::register($this);
 <body style="padding-top: 50px">
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrap" style="min-height: 100%">
 
     <?=$this->render('navbar')?>
 

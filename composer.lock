@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "df06ac42ffd3cbefd29d85a3127fff9e",
-    "content-hash": "d57d2d0022e1bd4a4c6404a2bc358543",
+    "hash": "2100f085b39760e9dd25174483fc8496",
+    "content-hash": "70aa8f912c4893ac213707e79c726f63",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -596,6 +596,52 @@
                 "yii2"
             ],
             "time": "2016-09-26 16:52:23"
+        },
+        {
+            "name": "dvixi/yii2-icon-select",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/athl64/yii2-icon-select.git",
+                "reference": "df6986cee256d1c6f078d74cadc10d69d8aa8633"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/athl64/yii2-icon-select/zipball/df6986cee256d1c6f078d74cadc10d69d8aa8633",
+                "reference": "df6986cee256d1c6f078d74cadc10d69d8aa8633",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "dvixi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "dvixi",
+                    "email": "athl64@bigmir.net"
+                }
+            ],
+            "description": "yii2 widget for image-icons choosing, based on iconselect.js",
+            "keywords": [
+                "icon image picker",
+                "icon picker",
+                "icon select",
+                "widget",
+                "yii",
+                "yii 2",
+                "yii2"
+            ],
+            "time": "2016-05-18 12:02:21"
         },
         {
             "name": "ezyang/htmlpurifier",

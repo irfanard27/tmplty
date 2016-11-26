@@ -10,4 +10,7 @@ use \app\models\base\Menu as BaseMenu;
  */
 class Menu extends BaseMenu
 {
+    public function getModule(){
+        return $this->hasOne(Module::className(),["id",'id']);
+    }
 }

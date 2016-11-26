@@ -43,6 +43,7 @@ return array(
     'kartik\\alert\\' => array($vendorDir . '/kartik-v/yii2-widget-alert'),
     'kartik\\affix\\' => array($vendorDir . '/kartik-v/yii2-widget-affix'),
     'hscstudio\\mimin\\' => array($vendorDir . '/hscstudio/yii2-mimin'),
+    'dvixi\\' => array($vendorDir . '/dvixi/yii2-icon-select/src'),
     'dmstr\\helpers\\' => array($vendorDir . '/dmstr/yii2-helpers/src'),
     'dmstr\\db\\tests\\' => array($vendorDir . '/dmstr/yii2-db/db/tests'),
     'dmstr\\db\\' => array($vendorDir . '/dmstr/yii2-db/db'),

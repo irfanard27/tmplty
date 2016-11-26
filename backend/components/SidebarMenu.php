@@ -15,14 +15,15 @@ use yii\bootstrap\Widget;
 
 class SidebarMenu extends Widget
 {
-    public static function getMenu(){
+    public static function getMenu($module=2){
         $menu = [];
 
         $role_menu = Menu::find()
             ->leftJoin('role_menu','menu.id = role_menu.menu')
             ->where([
                 "menu.parent"=>"",
-                'role_menu.role'=>\Yii::$app->user->id
+                'role_menu.role'=>\Yii::$app->user->id,
+                'module'=>$module
             ])
             ->all();
 
@@ -42,13 +43,14 @@ class SidebarMenu extends Widget
         return $menu;
     }
 
-    public static function getMenuByParent($prt){
+    public static function getMenuByParent($prt,$module=2){
         $menu = [];
         $role_menus = Menu::find()
             ->leftJoin('role_menu','menu.id = role_menu.menu')
             ->where([
                 "menu.parent"=>$prt,
-                'role_menu.role'=>\Yii::$app->user->id
+                'role_menu.role'=>\Yii::$app->user->id,
+                'module'=>$module
             ])
             ->all();
 
